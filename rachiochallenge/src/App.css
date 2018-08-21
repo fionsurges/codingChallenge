@@ -36,6 +36,9 @@ header {
   border: 1px solid #d9dce0;
   border-radius: 3px;
   margin: 0 8px;
+  height: 3vh;
+  width: 35px;
+  font-size: 1em;
 }
 
 /* Sprinkler runtime buttons*/
@@ -45,12 +48,27 @@ header {
   justify-content: center;
 }
 
-.schedule-buttons button {
+#select-all-button {
+  border: 1px solid #d9dce0;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 1px #d9dce0;
+  box-shadow: 1px 1px #d9dce0;
+  margin: 0 1vw;
+  margin-top: 3vh;
+  height: 3vh;
+  width: 10vw;
+}
+
+#start-button {
   border: 1px solid #d9dce0;
   border-radius: 3px;
   box-shadow: 1px 1px #d9dce0;
-  margin: 0 1vw;
+  background-color: lightgreen;
+  height: 6vh;
+  width: 10vw;
+  font-size: 1em;
 }
+
 
 /* Zone Cards (individual) */
 .zone-cards {
@@ -68,7 +86,7 @@ header {
   margin: 20px 10px;
 }
 
-.zone-card:hover {
+.zone-card:hover, .zone-card:active, .zone-card:focus {
   border: 3px solid gray;
 }
 
@@ -84,7 +102,7 @@ header {
   font-weight: bold;
 }
 
-.zone-card .selected {
+.zone-card.selected {
   border: 3px solid gray;
   border-radius: 3px;
   box-shadow: 2px 2px #d9dce0;
@@ -93,13 +111,13 @@ header {
   margin: 20px 10px;
 }
 
-.zone-card .selected img {
+.zone-card.selected img {
   height: 163px;
   width: 182px;
   margin: 1vh;
 }
 
-.zone-card .selected p {
+.zone-card.selected p {
   margin: -4px;
   font-weight: bold;
 }

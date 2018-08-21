@@ -36,7 +36,6 @@ class Zones extends Component {
                     cardClicked: true
                 })
             }})        
-        console.log('selected zones: ', this.state.selectedZones);
         
     }
     
@@ -48,6 +47,7 @@ class Zones extends Component {
             selectedZones.push(zone)
         })
         this.setState({
+            cardClicked: !this.state.cardClicked,
             cardBorderWhenClicked: '3px solid gray'
         })
     }
@@ -75,7 +75,7 @@ class Zones extends Component {
         const ids = this.state.ids
         const putObject = []
         ids.forEach(id => putObject.push({id: id, duration: this.state.duration * 60}))        
-
+        
         fetch('https://api.rach.io/1/public/zone/start_multiple', {
             method: 'PUT',
             body: JSON.stringify({
@@ -85,7 +85,9 @@ class Zones extends Component {
             'Authorization': 'Bearer 76980330-8f0b-4659-a341-527364acf134'
             }
         })
-        .then(response => {
+
+        
+        .then(response => {            
             if (response.ok) {
                 this.setState ({
                     response: true
@@ -105,15 +107,13 @@ class Zones extends Component {
     
 
     render() {
-        const zones = this.state.allZones
-        let zoneCardClass = this.state.selectedZones.selected ? 'zone-card selected' : 'zone-card'
+        const chosenZones = this.props.chosenDevice[0].zones
         return(
             <React.Fragment>
             <div className='zone-schedule'>
                 <div>
                     <h1>Zones</h1> 
                     <p><i>Select zones to run</i></p>
-                    {this.state.selectedZones}
                 </div>
                 <div className='sprinkler-runtime'>
                     <form>
@@ -121,15 +121,17 @@ class Zones extends Component {
                         <input name='duration' value={this.state.duration} type='text' onChange={this.handleChange}/>
                     </form>
                     <div className='schedule-buttons'>
-                        <button onClick={this.selectAllClick}>Select all zones</button>
-                        <button onClick={this.scheduleSprinklerSystem}>Start</button>
+                        <button onClick={this.selectAllClick} id='select-all-button'>Select all zones</button>
+                        <button onClick={this.scheduleSprinklerSystem} id='start-button'>Start System</button>
                     </div>
                 </div>
             </div>
             <div className='zone-cards'>
-                {zones.map(zone => {
+                {chosenZones.map(zone => {
+                    let zoneCardClass = zone.selected ? 'zone-card selected' : 'zone-card'
+                    let selectAll = this.state.cardClicked
                     return(
-                        <div className={zoneCardClass} onClick={this.individualZoneClick} style={{border: this.state.cardBorderWhenClicked}} id={zone.id}>
+                        <div className={zoneCardClass} onClick={this.individualZoneClick} style={selectAll ? {border: this.state.cardBorderWhenClicked}:(null)} id={zone.id}>
                             <img src={zone.imageUrl}/>
                             <p>{zone.name}</p>
                         </div>

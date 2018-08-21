@@ -24,7 +24,7 @@ class ChooseOnlineDevice extends Component {
     handleChange = (event) => {
         const changeDevice = this.props.onlineDevices.filter(device => device.name === event.currentTarget.value)
         this.setState({
-            chosenDevice: changeDevice,
+            chosenDevice: changeDevice
         })
     }
     

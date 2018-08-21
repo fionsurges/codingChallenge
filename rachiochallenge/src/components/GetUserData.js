@@ -63,8 +63,6 @@ class GetUserProfile extends Component {
     
     render() {
         const onlineDevicesLoaded = this.state.onlineDevicesLoaded
-        // console.log("Online devices: ", this.state.onlineDevices)
-        
 
         return (
             <header>

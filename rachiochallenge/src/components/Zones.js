@@ -9,9 +9,8 @@ class Zones extends Component {
             selectedZone: [],
             ids: [],
             duration: 0,
-            response: false,
             cardClicked: false,
-            cardClickClassName: '',
+            response: false,
             cardBorderWhenClicked: ''
         }
     }
@@ -29,13 +28,15 @@ class Zones extends Component {
 
     individualZoneClick = (event) => {
         const allZones = this.state.allZones
-        // const selectedZones = this.state.selectedZones
         allZones.map(zone => {
             if (zone.id === event.currentTarget.id) {
                 zone.selected = true
                 this.state.selectedZones.push(zone)
-            }})
-        console.log('selectedZones: ', this.state.selectedZones);
+                this.setState({
+                    cardClicked: true
+                })
+            }})        
+        console.log('selected zones: ', this.state.selectedZones);
         
     }
     
@@ -105,7 +106,7 @@ class Zones extends Component {
 
     render() {
         const zones = this.state.allZones
-        const zoneCardClass = this.state.selectedZones.selected ? 'zone-card-selected' : 'zone-card'
+        let zoneCardClass = this.state.selectedZones.selected ? 'zone-card selected' : 'zone-card'
         return(
             <React.Fragment>
             <div className='zone-schedule'>

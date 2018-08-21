@@ -1,0 +1,94 @@
+/* Header */
+header {
+  border-bottom: 1px solid #d9dce0;
+}
+
+/* Online devices */
+.online-devices {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: 1px solid #d9dce0;
+}
+
+.online-devices h2 {
+  margin: 2vh 1vw;
+}
+.online-devices select {
+  margin: 2vh 1vw;
+}
+
+/* Zone Schedule */
+.zone-schedule {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* Sprinkler runtime */
+.sprinkler-runtime {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.sprinkler-runtime input {
+  border: 1px solid #d9dce0;
+  border-radius: 3px;
+  margin: 0 8px;
+}
+
+/* Sprinkler runtime buttons*/
+.schedule-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.schedule-buttons button {
+  border: 1px solid #d9dce0;
+  border-radius: 3px;
+  box-shadow: 1px 1px #d9dce0;
+  margin: 0 1vw;
+}
+
+/* Zone Cards (individual) */
+.zone-cards{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.zone-card {
+  border: 1px solid #d9dce0;
+  border-radius: 3px;
+  box-shadow: 2px 2px #d9dce0;
+  width: 225px;
+  height: 205px;
+  margin: 20px 10px;
+}
+
+/* .zone-card:active {
+  border: 3px solid gray;
+} */
+
+.zone-card-selected {
+  border: 3px solid gray;
+  border-radius: 3px;
+  box-shadow: 2px 2px #d9dce0;
+  width: 225px;
+  height: 205px;
+  margin: 20px 10px;
+}
+
+.zone-card img {
+  height: 163px;
+  width: 182px;
+  margin: 1vh;
+}
+
+.zone-card p {
+  margin: -4px;
+  font-weight: bold;
+}
+
